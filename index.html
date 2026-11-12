@@ -102,7 +102,11 @@
     </section>
   </main>
 
-  <button id="music" type="button" aria-label="Música pendiente" title="Música">♫</button>
+  
+<audio id=" const botonMusica = document.getElementById('music'); const audioMusica = document.getElementById('audioNavidad');  botonMusica.onclick = () => {   if (audioMusica.paused) {     audioMusica.play();     botonMusica.textContent = '♫';   } else {     audioMusica.pause();     botonMusica.textContent = '♪';   } };" loop preload="auto">
+   <source src="musica-autorizada.mp3" type="audio/mpeg">
+</audio>
+<button id="music" type="button" aria-label="Música pendiente" title="Música">♫</button>
 
   <script>
     const WHATSAPP_CONFIRMACION = '526694466828';
@@ -110,7 +114,7 @@
     const rsvp = document.getElementById('rsvp');
     rsvp.href = 'https://wa.me/' + WHATSAPP_CONFIRMACION + '?text=' + encodeURIComponent(texto);
 
-    document.getElementById('enter').addEventListener('click', function () {
+     document.getElementById('enter').onclick = () => {   const cover = document.getElementById('cover');   const main = document.getElementById('main');   const music = document.getElementById('music');   const audio = document.getElementById('audioNavidad');    cover.classList.add('hide');   main.classList.add('show');   music.style.display = 'block';    audio.volume = 0.35;   audio.play()     .then(() => { music.textContent = '♫'; })     .catch(() => { music.textContent = '♪'; });    setTimeout(() => {     cover.style.display = 'none';   }, 650); };.addEventListener('click', function () {
       const cover = document.getElementById('cover');
       const main = document.getElementById('main');
       main.classList.add('show');
