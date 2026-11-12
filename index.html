@@ -35,7 +35,7 @@
     .count small { font-size:.65rem; text-transform:uppercase; }
     .star { color:var(--gold); font-size:1.5rem; letter-spacing:.4em; }
     .footer { font-size:.78rem; opacity:.85; padding:15px; }
-    #music { position:fixed; bottom:18px; right:18px; z-index:4; background:#f5d68e; color:#4c0900; border:0; border-radius:50%; width:48px; height:48px; font-size:20px; cursor:pointer; display:none; }
+    #music { position:fixed; bottom:18px; right:18px; z-index:6; background:#f5d68e; color:#4c0900; border:0; border-radius:50%; width:48px; height:48px; font-size:20px; cursor:pointer; display:none; }
     main { display:none; padding:20px 12px 45px; }
     main.show { display:block; }
     @media (min-width:800px) { .panel { padding:46px 38px; } }
@@ -43,6 +43,10 @@
   </style>
 </head>
 <body>
+  <audio id="audioNavidad" loop preload="auto">
+    <source src="musica-autorizada.mp3" type="audio/mpeg">
+  </audio>
+
   <video class="fondo-video" autoplay muted loop playsinline aria-hidden="true">
     <source src="fondo-navidad.mp4" type="video/mp4">
   </video>
@@ -73,7 +77,6 @@
       <div class="detail">2026 · 6:00 p. m.</div>
       <p>Restaurante Yuzu</p>
       <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Yuzu%20Mazatlan">📍 Ver ubicación</a>
-      
     </section>
 
     <section class="panel">
@@ -102,11 +105,7 @@
     </section>
   </main>
 
-  
-<audio id=" const botonMusica = document.getElementById('music'); const audioMusica = document.getElementById('audioNavidad');  botonMusica.onclick = () => {   if (audioMusica.paused) {     audioMusica.play();     botonMusica.textContent = '♫';   } else {     audioMusica.pause();     botonMusica.textContent = '♪';   } };" loop preload="auto">
-   <source src="musica-autorizada.mp3" type="audio/mpeg">
-</audio>
-<button id="music" type="button" aria-label="Música pendiente" title="Música">♫</button>
+  <button id="music" type="button" aria-label="Pausar música" title="Pausar música">♫</button>
 
   <script>
     const WHATSAPP_CONFIRMACION = '526694466828';
@@ -114,14 +113,37 @@
     const rsvp = document.getElementById('rsvp');
     rsvp.href = 'https://wa.me/' + WHATSAPP_CONFIRMACION + '?text=' + encodeURIComponent(texto);
 
-     document.getElementById('enter').onclick = () => {   const cover = document.getElementById('cover');   const main = document.getElementById('main');   const music = document.getElementById('music');   const audio = document.getElementById('audioNavidad');    cover.classList.add('hide');   main.classList.add('show');   music.style.display = 'block';    audio.volume = 0.35;   audio.play()     .then(() => { music.textContent = '♫'; })     .catch(() => { music.textContent = '♪'; });    setTimeout(() => {     cover.style.display = 'none';   }, 650); };.addEventListener('click', function () {
-      const cover = document.getElementById('cover');
-      const main = document.getElementById('main');
+    const cover = document.getElementById('cover');
+    const main = document.getElementById('main');
+    const music = document.getElementById('music');
+    const audio = document.getElementById('audioNavidad');
+
+    function actualizarBotonMusica() {
+      const reproduciendo = !audio.paused;
+      music.textContent = reproduciendo ? '♫' : '♪';
+      music.setAttribute('aria-label', reproduciendo ? 'Pausar música' : 'Reproducir música');
+      music.title = reproduciendo ? 'Pausar música' : 'Reproducir música';
+    }
+
+    document.getElementById('enter').addEventListener('click', () => {
       main.classList.add('show');
       cover.classList.add('hide');
-      document.getElementById('music').style.display = 'block';
-      setTimeout(function () { cover.style.display = 'none'; }, 650);
+      music.style.display = 'block';
+      audio.volume = 0.35;
+      audio.play().then(actualizarBotonMusica).catch(actualizarBotonMusica);
+      setTimeout(() => { cover.style.display = 'none'; }, 650);
     });
+
+    music.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().then(actualizarBotonMusica).catch(actualizarBotonMusica);
+      } else {
+        audio.pause();
+        actualizarBotonMusica();
+      }
+    });
+    audio.addEventListener('play', actualizarBotonMusica);
+    audio.addEventListener('pause', actualizarBotonMusica);
 
     const target = new Date('2026-12-13T18:00:00-07:00').getTime();
     function tick() {
@@ -138,10 +160,6 @@
     }
     tick();
     setInterval(tick, 1000);
-
-    document.getElementById('music').addEventListener('click', function () {
-      alert('La música está pendiente de seleccionar.');
-    });
   </script>
 </body>
 </html>
