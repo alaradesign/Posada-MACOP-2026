@@ -1,165 +1,35 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#760000">
-  <title>Posada MACOP 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --gold:#f5d68e; --cream:#fff6e8; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; color:var(--cream); font-family:Montserrat,Arial,sans-serif; background:#760000 url('fondo.png') center top/cover fixed no-repeat; }
-    body::before { content:''; position:fixed; inset:0; background:linear-gradient(180deg,rgba(64,0,0,.24),rgba(64,0,0,.60)); pointer-events:none; z-index:1; }
-    .fondo-video { position:fixed; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; pointer-events:none; }
-    main,.cover { position:relative; z-index:2; }
-    .cover { position:fixed; inset:0; display:flex; justify-content:center; align-items:center; background:transparent; z-index:5; padding:22px; transition:opacity .6s; overflow-y:auto; }
-    .cover.hide { opacity:0; pointer-events:none; }
-    .panel { width:min(100%,550px); margin:30px auto; padding:35px 22px; text-align:center; background:rgba(87,0,0,.68); border:1px solid rgba(245,214,142,.6); border-radius:22px; box-shadow:0 15px 45px #3005; backdrop-filter:blur(3px); }
-    .logo { display:block; width:95%; max-width:420px; height:auto; margin:0 auto 25px; padding:0; background:transparent; border:none; border-radius:0; box-shadow:none; object-fit:contain; }
-    .eyebrow { letter-spacing:.26em; font-size:.76rem; color:var(--gold); font-weight:700; text-transform:uppercase; }
-    h1,h2 { font-family:'Cormorant Garamond',Georgia,serif; color:var(--gold); line-height:1.03; margin:16px 0; font-weight:700; }
-    h1 { font-size:clamp(3.1rem,12vw,5rem); }
-    h2 { font-size:clamp(2.5rem,9vw,3.6rem); }
-    p { line-height:1.85; font-size:1rem; }
-    strong { color:var(--gold); }
-    .btn { display:inline-block; background:linear-gradient(110deg,#f9e3a8,#c99d47); color:#4c0900; border:0; border-radius:100px; padding:15px 25px; font:700 .83rem Montserrat,Arial,sans-serif; text-decoration:none; cursor:pointer; box-shadow:0 5px 16px #2707; margin:9px 5px; }
-    .btn.secondary { background:transparent; border:1px solid var(--gold); color:var(--gold); }
-    .detail { font-size:1.35rem; font-weight:700; margin:12px 0; }
-    .count { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:25px 0; }
-    .count div { border:1px solid #e8c57b88; padding:12px 4px; border-radius:10px; background:#4005; }
-    .count b { display:block; font-size:clamp(1.2rem,5vw,2rem); color:var(--gold); }
-    .count small { font-size:.65rem; text-transform:uppercase; }
-    .star { color:var(--gold); font-size:1.5rem; letter-spacing:.4em; }
-    .footer { font-size:.78rem; opacity:.85; padding:15px; }
-    #music { position:fixed; bottom:18px; right:18px; z-index:6; background:#f5d68e; color:#4c0900; border:0; border-radius:50%; width:48px; height:48px; font-size:20px; cursor:pointer; display:none; }
-    main { display:none; padding:20px 12px 45px; }
-    main.show { display:block; }
-    @media (min-width:800px) { .panel { padding:46px 38px; } }
-    @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; transition:none!important; } }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#760000">
+<title>Posada MACOP 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f5d68e;--cream:#fff6e8}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--cream);font-family:Montserrat,Arial,sans-serif;background:#760000 url('fondo.png') center top/cover fixed no-repeat}body::before{content:'';position:fixed;inset:0;background:linear-gradient(180deg,rgba(64,0,0,.24),rgba(64,0,0,.60));pointer-events:none;z-index:1}.fondo-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none}main,.cover{position:relative;z-index:2}.cover{position:fixed;inset:0;display:flex;justify-content:center;align-items:center;background:transparent;z-index:5;padding:22px;transition:opacity .6s;overflow-y:auto}.cover.hide{opacity:0;pointer-events:none}.panel{width:min(100%,550px);margin:30px auto;padding:35px 22px;text-align:center;background:rgba(87,0,0,.68);border:1px solid rgba(245,214,142,.6);border-radius:22px;box-shadow:0 15px 45px #3005;backdrop-filter:blur(3px)}.logo{display:block;width:95%;max-width:420px;height:auto;margin:0 auto 25px;object-fit:contain}.eyebrow{letter-spacing:.2em;font-size:.76rem;color:var(--gold);font-weight:700;text-transform:uppercase}h1,h2{font-family:'Cormorant Garamond',Georgia,serif;color:var(--gold);line-height:1.03;margin:16px 0;font-weight:700}h1{font-size:clamp(3.1rem,12vw,5rem)}h2{font-size:clamp(2.5rem,9vw,3.6rem)}p{line-height:1.85;font-size:1rem}strong{color:var(--gold)}.btn{display:inline-block;background:linear-gradient(110deg,#f9e3a8,#c99d47);color:#4c0900;border:0;border-radius:100px;padding:15px 25px;font:700 .83rem Montserrat,Arial,sans-serif;text-decoration:none;cursor:pointer;box-shadow:0 5px 16px #2707;margin:9px 5px}.detail{font-size:1.35rem;font-weight:700;margin:12px 0}.count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:25px 0}.count div{border:1px solid #e8c57b88;padding:12px 4px;border-radius:10px;background:#4005}.count b{display:block;font-size:clamp(1.2rem,5vw,2rem);color:var(--gold)}.count small{font-size:.65rem;text-transform:uppercase}.star{color:var(--gold);font-size:1.5rem;letter-spacing:.4em}.footer{font-size:.78rem;opacity:.85;padding:15px}#music{position:fixed;bottom:18px;right:18px;z-index:4;background:var(--gold);color:#4c0900;border:0;border-radius:50%;width:48px;height:48px;font-size:20px;cursor:pointer;display:none}main{display:none;padding:20px 12px 45px}main.show{display:block}
+/* Cupón navideño estilo boleto desprendible */
+.ticket{position:relative;margin:28px auto 14px;max-width:430px;border:2px solid var(--gold);border-radius:18px;background:linear-gradient(145deg,#8f0c16,#580008);box-shadow:0 12px 30px #2508;padding:28px 17px 24px;overflow:hidden}.ticket:before,.ticket:after{content:'';position:absolute;top:71%;height:26px;width:26px;background:#570000;border:2px solid var(--gold);border-radius:50%;z-index:1}.ticket:before{left:-16px}.ticket:after{right:-16px}.ticket-head{font-size:.72rem;letter-spacing:.22em;color:var(--gold);font-weight:700}.ticket-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.8rem,10vw,4.2rem);line-height:1.05;font-weight:700;color:#fff9ec;margin:22px 0 12px}.ticket-title span{display:block;color:var(--gold)}.ticket-hat{position:absolute;top:5px;right:16px;font-size:2.8rem;transform:rotate(17deg);filter:drop-shadow(0 2px 2px #3007)}.ticket-place{font-weight:700;letter-spacing:.07em;font-size:1.1rem}.ticket-cut{border-top:2px dashed var(--gold);margin:25px -3px 15px}.ticket-person{font-size:1.03rem;font-weight:800;letter-spacing:.08em;color:#fff9ec;margin:0 0 12px}.ticket-foot{font-size:.78rem;letter-spacing:.12em;color:var(--gold);font-weight:700}.snow{font-size:1.15rem;color:var(--gold);letter-spacing:.5em;opacity:.9}.ticket-note{font-size:.85rem;margin:12px 0 0;color:#fff0da}@media(min-width:800px){.panel{padding:46px 38px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
 </head>
 <body>
-  <audio id="audioNavidad" loop preload="auto">
-    <source src="musica-autorizada.mp3" type="audio/mpeg">
-  </audio>
-
-  <video class="fondo-video" autoplay muted loop playsinline aria-hidden="true">
-    <source src="fondo-navidad.mp4" type="video/mp4">
-  </video>
-
-  <section class="cover" id="cover">
-    <div class="panel">
-      <img class="logo" src="logo-macop.png" alt="Logo MACOP">
-      <div class="eyebrow">Una celebración especial</div>
-      <h1>Gran Posada<br>Navideña 2026</h1>
-      <div class="star">✦ ✧ ✦</div>
-      <p>Un año de esfuerzo merece una gran celebración.</p>
-      <button class="btn" id="enter" type="button">✦ Abrir invitación ✦</button>
-    </div>
-  </section>
-
-  <main id="main">
-    <section class="panel">
-      <img class="logo" src="logo-macop.png" alt="MACOP">
-      <div class="eyebrow">MACOP te invita</div>
-      <h2>¡Celebremos juntos!</h2>
-      <p>Gracias por formar parte de un año de trabajo, compromiso y logros compartidos. Es momento de reunirnos y disfrutar de nuestra <strong>Posada Navideña 2026</strong>.</p>
-      <div class="star">✦ ✧ ✦</div>
-    </section>
-
-    <section class="panel">
-      <div class="eyebrow">Reserva la fecha</div>
-      <h2>Domingo<br>13 de diciembre</h2>
-      <div class="detail">2026 · 6:00 p. m.</div>
-      <p>Restaurante Yuzu</p>
-      <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Yuzu%20Mazatlan">📍 Ver ubicación</a>
-    </section>
-
-    <section class="panel">
-      <div class="eyebrow">Falta muy poco</div>
-      <h2>Cuenta regresiva</h2>
-      <div class="count" id="count">
-        <div><b id="days">--</b><small>Días</small></div>
-        <div><b id="hours">--</b><small>Horas</small></div>
-        <div><b id="mins">--</b><small>Minutos</small></div>
-        <div><b id="secs">--</b><small>Segundos</small></div>
-      </div>
-    </section>
-
-    <section class="panel">
-      <div class="eyebrow">Nos encantará contar contigo</div>
-      <h2>Confirma tu asistencia</h2>
-      <p>Ayúdanos a preparar una celebración inolvidable confirmando tu participación.</p>
-      <a class="btn" id="rsvp" href="#" target="_blank" rel="noopener">✓ Confirmar por WhatsApp</a>
-    </section>
-
-    <section class="panel">
-      <div class="star">✦ ✧ ✦</div>
-      <h2>¡Te esperamos!</h2>
-      <p>Por un año más de grandes momentos y trabajo en equipo.</p>
-      <div class="footer">Invitación digital · Alara Design</div>
-    </section>
-  </main>
-
-  <button id="music" type="button" aria-label="Pausar música" title="Pausar música">♫</button>
-
-  <script>
-    const WHATSAPP_CONFIRMACION = '526694466828';
-    const texto = '¡Hola! 🎄 Confirmo mi asistencia a la Posada MACOP 2026 del domingo 13 de diciembre a las 6:00 p. m. en Restaurante Yuzu.\n\nNombre: ';
-    const rsvp = document.getElementById('rsvp');
-    rsvp.href = 'https://wa.me/' + WHATSAPP_CONFIRMACION + '?text=' + encodeURIComponent(texto);
-
-    const cover = document.getElementById('cover');
-    const main = document.getElementById('main');
-    const music = document.getElementById('music');
-    const audio = document.getElementById('audioNavidad');
-
-    function actualizarBotonMusica() {
-      const reproduciendo = !audio.paused;
-      music.textContent = reproduciendo ? '♫' : '♪';
-      music.setAttribute('aria-label', reproduciendo ? 'Pausar música' : 'Reproducir música');
-      music.title = reproduciendo ? 'Pausar música' : 'Reproducir música';
-    }
-
-    document.getElementById('enter').addEventListener('click', () => {
-      main.classList.add('show');
-      cover.classList.add('hide');
-      music.style.display = 'block';
-      audio.volume = 0.35;
-      audio.play().then(actualizarBotonMusica).catch(actualizarBotonMusica);
-      setTimeout(() => { cover.style.display = 'none'; }, 650);
-    });
-
-    music.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play().then(actualizarBotonMusica).catch(actualizarBotonMusica);
-      } else {
-        audio.pause();
-        actualizarBotonMusica();
-      }
-    });
-    audio.addEventListener('play', actualizarBotonMusica);
-    audio.addEventListener('pause', actualizarBotonMusica);
-
-    const target = new Date('2026-12-13T18:00:00-07:00').getTime();
-    function tick() {
-      let n = Math.max(0, Math.floor((target - Date.now()) / 1000));
-      const d = Math.floor(n / 86400);
-      n %= 86400;
-      const h = Math.floor(n / 3600);
-      n %= 3600;
-      const m = Math.floor(n / 60);
-      const s = n % 60;
-      [['days',d],['hours',h],['mins',m],['secs',s]].forEach(function (item) {
-        document.getElementById(item[0]).textContent = String(item[1]).padStart(2,'0');
-      });
-    }
-    tick();
-    setInterval(tick, 1000);
-  </script>
-</body>
-</html>
+<audio id="audioNavidad" loop preload="auto"><source src="musica-autorizada.mp3" type="audio/mpeg"></audio>
+<video class="fondo-video" autoplay muted loop playsinline aria-hidden="true"><source src="fondo-navidad.mp4" type="video/mp4"></video>
+<section class="cover" id="cover"><div class="panel"><img class="logo" src="logo-macop.png" alt="Logo MACOP"><div class="eyebrow">Una celebración especial</div><h1>Gran Posada<br>Navideña 2026</h1><div class="star">✦ ✧ ✦</div><p>Un año de esfuerzo merece una gran celebración.</p><button class="btn" id="enter" type="button">✦ Abrir invitación ✦</button></div></section>
+<main id="main">
+<section class="panel"><img class="logo" src="logo-macop.png" alt="MACOP"><div class="eyebrow">MACOP te invita</div><h2>¡Celebremos juntos!</h2><p>Gracias por formar parte de un año de trabajo, compromiso y logros compartidos. Es momento de reunirnos y disfrutar de nuestra <strong>Posada Navideña 2026</strong>.</p><div class="star">✦ ✧ ✦</div></section>
+<section class="panel"><div class="eyebrow">Domingo 13 de diciembre de 2026</div><h2>¡Comenzamos con un café!</h2><div class="detail">6:00 p. m.</div><div class="ticket" aria-label="Cupón navideño válido por un café en Plaza Machado. Invitación individual válida por una persona para café y cena"><div class="ticket-hat" aria-hidden="true">🎅</div><div class="ticket-head">✦ CUPÓN NAVIDEÑO ✦</div><div class="snow" aria-hidden="true">❄ ✦ ❄</div><div class="ticket-title">VÁLIDO POR <span>UN CAFÉ</span></div><div class="ticket-place">☕ PLAZA MACHADO</div><div class="ticket-cut"></div><div class="ticket-person">✦ VÁLIDO POR UNA PERSONA ✦</div><div class="ticket-foot">POSADA MACOP 2026</div></div><p class="ticket-note">Un pequeño detalle para comenzar nuestra celebración.</p></section>
+<section class="panel"><div class="eyebrow">Después, continuamos celebrando</div><h2>Nuestra cena navideña</h2><div class="detail">Gus Gus · Zona Dorada</div><p>Mazatlán, Sinaloa</p><p><strong>Invitación válida por una persona</strong></p><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Gus%20Gus%20Zona%20Dorada%20Mazatlan">📍 Ver ubicación de la cena</a></section>
+<section class="panel"><div class="eyebrow">Falta muy poco</div><h2>Cuenta regresiva</h2><div class="count"><div><b id="days">--</b><small>Días</small></div><div><b id="hours">--</b><small>Horas</small></div><div><b id="mins">--</b><small>Minutos</small></div><div><b id="secs">--</b><small>Segundos</small></div></div></section>
+<section class="panel"><div class="eyebrow">Nos encantará contar contigo</div><h2>Confirma tu asistencia</h2><p>Ayúdanos a preparar una celebración inolvidable confirmando tu participación. <strong>Invitación individual válida por una persona.</strong></p><a class="btn" id="rsvp" href="#" target="_blank" rel="noopener">✓ Confirmar por WhatsApp</a></section>
+<section class="panel"><div class="star">✦ ✧ ✦</div><h2>¡Te esperamos!</h2><p>Por un año más de grandes momentos y trabajo en equipo.</p><div class="footer">Invitación digital · Alara Design</div></section>
+</main>
+<button id="music" type="button" aria-label="Pausar música" title="Pausar o reanudar música">♫</button>
+<script>
+const audio=document.getElementById('audioNavidad');const music=document.getElementById('music');audio.volume=.35;
+const texto='¡Hola! 🎄 Confirmo mi asistencia a la Posada MACOP 2026 del domingo 13 de diciembre a las 6:00 p. m. Comenzamos con un café en Plaza Machado y después cenamos en Gus Gus, Zona Dorada.\n\nNombre: ';
+document.getElementById('rsvp').href='https://wa.me/526694466828?text='+encodeURIComponent(texto);
+document.getElementById('enter').addEventListener('click',()=>{const cover=document.getElementById('cover');document.getElementById('main').classList.add('show');cover.classList.add('hide');music.style.display='block';audio.play().then(()=>{music.textContent='♫';music.setAttribute('aria-label','Pausar música')}).catch(()=>{music.textContent='♪';music.setAttribute('aria-label','Reproducir música')});setTimeout(()=>{cover.style.display='none'},650)});
+music.addEventListener('click',()=>{if(audio.paused){audio.play().then(()=>{music.textContent='♫';music.setAttribute('aria-label','Pausar música')}).catch(()=>{music.textContent='♪'})}else{audio.pause();music.textContent='♪';music.setAttribute('aria-label','Reproducir música')}});
+const target=new Date('2026-12-13T18:00:00-07:00').getTime();function tick(){let n=Math.max(0,Math.floor((target-Date.now())/1000));const d=Math.floor(n/86400);n%=86400;const h=Math.floor(n/3600);n%=3600;const m=Math.floor(n/60),s=n%60;[['days',d],['hours',h],['mins',m],['secs',s]].forEach(([id,val])=>{document.getElementById(id).textContent=String(val).padStart(2,'0')})}tick();setInterval(tick,1000);
+</script>
+</body></html>
